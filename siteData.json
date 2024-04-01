@@ -62,9 +62,11 @@
         "glossary": "Glossary",
         "appendix-instructions-for-manual-testing": "Appendix: Instructions for manual testing",
         "launch-and-shutdown": "Launch and shutdown",
-        "adding-a-person": "Adding a person",
-        "deleting-a-person": "Deleting a person",
-        "saving-data": "Saving data"
+        "adding-a-student": "Adding a student",
+        "deleting-a-student": "Deleting a student",
+        "marking-a-student-s-attendance": "Marking a student's attendance",
+        "saving-data": "Saving data",
+        "setting-the-course": "Setting the course"
       },
       "headingKeywords": {}
     },
@@ -90,6 +92,7 @@
       "headings": {
         "setting-up-and-getting-started": "Setting up and getting started",
         "setting-up-the-project-in-your-computer": "Setting up the project in your computer",
+        "setting-up-a-local-documentation-website": "Setting up a local documentation website",
         "before-writing-code": "Before writing code"
       },
       "headingKeywords": {}
