@@ -14,6 +14,7 @@ import java.util.Set;
 import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.course.Course;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Major;
 import seedu.address.model.person.Name;
@@ -21,19 +22,20 @@ import seedu.address.model.person.Phone;
 import seedu.address.model.tag.Tag;
 
 public class ParserUtilTest {
-    // TODO
     private static final String INVALID_NAME = "R@chel";
     private static final String INVALID_PHONE = "+651234";
     private static final String INVALID_EMAIL = "example.com";
     private static final String INVALID_MAJOR = " ";
     private static final String INVALID_TAG = "#friend";
-
+    private static final String INVALID_COURSE = "CS";
     private static final String VALID_NAME = "Rachel Walker";
     private static final String VALID_PHONE = "123456";
     private static final String VALID_MAJOR = "Computer Science";
     private static final String VALID_EMAIL = "rachel@example.com";
     private static final String VALID_TAG_1 = "friend";
     private static final String VALID_TAG_2 = "neighbour";
+
+    private static final String VALID_COURSE = "CS2101";
 
     private static final String WHITESPACE = " \t\r\n";
 
@@ -104,26 +106,50 @@ public class ParserUtilTest {
     }
 
     @Test
-    public void parseAddress_null_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> ParserUtil.parseAddress((String) null));
+    public void parseMajor_null_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> ParserUtil.parseMajor((String) null));
     }
 
     @Test
-    public void parseAddress_invalidValue_throwsParseException() {
-        assertThrows(ParseException.class, () -> ParserUtil.parseAddress(INVALID_MAJOR));
+    public void parseMajor_invalidValue_throwsParseException() {
+        assertThrows(ParseException.class, () -> ParserUtil.parseMajor(INVALID_MAJOR));
     }
 
     @Test
     public void parseMajor_validValueWithoutWhitespace_returnsMajor() throws Exception {
         Major expectedMajor = new Major(VALID_MAJOR);
-        assertEquals(expectedMajor, ParserUtil.parseAddress(VALID_MAJOR));
+        assertEquals(expectedMajor, ParserUtil.parseMajor(VALID_MAJOR));
+
     }
 
     @Test
     public void parseMajor_validValueWithWhitespace_returnsTrimmedMajor() throws Exception {
-        String addressWithWhitespace = WHITESPACE + VALID_MAJOR + WHITESPACE;
+        String majorWithWhitespace = WHITESPACE + VALID_MAJOR + WHITESPACE;
         Major expectedMajor = new Major(VALID_MAJOR);
-        assertEquals(expectedMajor, ParserUtil.parseAddress(addressWithWhitespace));
+        assertEquals(expectedMajor, ParserUtil.parseMajor(majorWithWhitespace));
+    }
+
+    @Test
+    public void parseCourse_null_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> ParserUtil.parseCourse((String) null));
+    }
+
+    @Test
+    public void parseCourse_invalidValue_throwsParseException() {
+        assertThrows(ParseException.class, () -> ParserUtil.parseCourse(INVALID_COURSE));
+    }
+
+    @Test
+    public void parseCourse_validValueWithoutWhitespace_returnsCourse() throws Exception {
+        Course expectedCourse = new Course(VALID_COURSE);
+        assertEquals(expectedCourse, ParserUtil.parseCourse(VALID_COURSE));
+    }
+
+    @Test
+    public void parseCourse_validValueWithWhitespace_returnsTrimmedCourse() throws Exception {
+        String courseWithWhitespace = WHITESPACE + VALID_COURSE + WHITESPACE;
+        Course expectedCourse = new Course(VALID_COURSE);
+        assertEquals(expectedCourse, ParserUtil.parseCourse(courseWithWhitespace));
     }
 
     @Test

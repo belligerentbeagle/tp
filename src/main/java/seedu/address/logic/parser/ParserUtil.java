@@ -74,7 +74,7 @@ public class ParserUtil {
      *
      * @throws ParseException if the given {@code address} is invalid.
      */
-    public static Major parseAddress(String address) throws ParseException {
+    public static Major parseMajor(String address) throws ParseException {
         requireNonNull(address);
         String trimmedAddress = address.trim();
         if (!Major.isValidMajor(trimmedAddress)) {
@@ -122,7 +122,7 @@ public class ParserUtil {
     public static Course parseCourse(String code) throws ParseException {
         requireNonNull(code);
         String trimmedCode = code.trim().toUpperCase();
-        if (!Tag.isValidTagName(trimmedCode)) {
+        if (!Course.isValidCode(trimmedCode)) {
             throw new ParseException(Course.MESSAGE_CONSTRAINTS);
         }
         return new Course(trimmedCode);
