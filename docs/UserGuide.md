@@ -694,8 +694,7 @@ edit 3 t/HealthTech
 
 **Caution:**
 
-Do note that as of the current version of TAPro, you can only add one tag to a contact. Adding a new tag will 
-replace the existing tag.
+Do note that as of the current version of TAPro, adding a new tag will replace the existing tag.
 
 Do also note that tags are alphanumeric and cannot contain spaces or special characters.
 
